@@ -2,13 +2,13 @@ import streamlit as st
 import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
 from PIL import Image
-inno=Image.open(r"C:\Users\RAGHAVENDRA KUMAR\OneDrive\Pictures\Screenshots\Inno.png")
+inno=Image.open("Inno.png")
 st.image(inno, use_column_width=True)
-email_logo=Image.open(r"C:\Users\RAGHAVENDRA KUMAR\Downloads\email.jpg")
+email_logo=Image.open("email.jpg")
 st.image(email_logo, caption='Email', use_column_width=False)
 # Load the pre-trained model and vectorizer
-model_path = r"C:\Users\RAGHAVENDRA KUMAR\ML\NLP\Email_spam_ham.pkl"
-vectorizer_path = r"C:\Users\RAGHAVENDRA KUMAR\ML\NLP\tfidf_vectorization.pkl"
+model_path = "Email_spam_ham.pkl"
+vectorizer_path = "tfidf_vectorization.pkl"
 
 with open(model_path, 'rb') as model_file:
     model = pickle.load(model_file)
@@ -29,9 +29,9 @@ if st.button("Submit"):
     
     if pred == 'spam':
         st.write("The Email is: Spam")
-        spam_image = Image.open(r"C:\Users\RAGHAVENDRA KUMAR\Downloads\spam.jpg")
+        spam_image = Image.open("spam.jpg")
         st.image(spam_image, caption='Spam Email', use_column_width=False)
     else:
         st.write("The Email is: Ham")
-        ham_image = Image.open(r"C:\Users\RAGHAVENDRA KUMAR\Downloads\ham.jpg")
+        ham_image = Image.open("ham.jpg")
         st.image(ham_image, caption='Ham Email', use_column_width=False)
